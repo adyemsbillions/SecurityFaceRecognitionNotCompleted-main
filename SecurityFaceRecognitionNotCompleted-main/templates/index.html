@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}Federal Biometrics of Nigeria - Home{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-lg border-0 mb-5">
+                <div class="card-header bg-primary text-white py-3">
+                    <h1 class="display-5 text-center mb-0">
+                        <i class="fas fa-id-card me-2"></i> Federal Biometrics of Nigeria
+                    </h1>
+                </div>
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4">Advanced Facial Recognition System</h2>
+                    
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        <i class="fas fa-search me-2 text-primary"></i> Recognition Features
+                                    </h3>
+                                    <ul class="list-group list-group-flush mt-3">
+                                        <li class="list-group-item">Enhanced face detection in various conditions</li>
+                                        <li class="list-group-item">Intelligent matching with confidence scoring</li>
+                                        <li class="list-group-item">Search by facial similarity and relationships</li>
+                                        <li class="list-group-item">Video analysis with timestamp identification</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="{{ url_for('search') }}" class="btn btn-primary w-100">
+                                        <i class="fas fa-camera"></i> Start Face Search
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        <i class="fas fa-users me-2 text-success"></i> User Management
+                                    </h3>
+                                    <ul class="list-group list-group-flush mt-3">
+                                        <li class="list-group-item">Register and manage user profiles</li>
+                                        <li class="list-group-item">Add multiple facial images per user</li>
+                                        <li class="list-group-item">Track relationships and associations</li>
+                                        <li class="list-group-item">Maintain contact and personal details</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="d-flex justify-content-between">
+                                        <a href="{{ url_for('add_user') }}" class="btn btn-success flex-grow-1 me-2">
+                                            <i class="fas fa-user-plus"></i> Add User
+                                        </a>
+                                        <a href="{{ url_for('view_users') }}" class="btn btn-outline-primary flex-grow-1">
+                                            <i class="fas fa-list"></i> View All
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm mb-4 h-100">
+                                <div class="card-body">
+                                    <i class="fas fa-image text-info fa-3x mb-3"></i>
+                                    <h4>Face Search</h4>
+                                    <p>Upload an image to find matching individuals in the database</p>
+                                    <a href="{{ url_for('search') }}" class="btn btn-info">Search Faces</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm mb-4 h-100">
+                                <div class="card-body">
+                                    <i class="fas fa-video text-warning fa-3x mb-3"></i>
+                                    <h4>Video Analysis</h4>
+                                    <p>Analyze videos to identify individuals with timestamps</p>
+                                    <a href="{{ url_for('video_analysis') }}" class="btn btn-warning text-dark">Analyze Video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center shadow-sm mb-4 h-100">
+                                <div class="card-body">
+                                    <i class="fas fa-brain text-danger fa-3x mb-3"></i>
+                                    <h4>Train Model</h4>
+                                    <p>Update the recognition model with new faces</p>
+                                    <form action="{{ url_for('train_model') }}" method="post">
+                                        <button type="submit" class="btn btn-danger">Train Model</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <h4 class="alert-heading"><i class="fas fa-info-circle"></i> Quick Tips</h4>
+                        <ul>
+                            <li>For best results, add multiple face images for each user</li>
+                            <li>Train the model after adding new users or face images</li>
+                            <li>Lower the confidence threshold to find more potential matches</li>
+                            <li>Add relationship information to improve identification accuracy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
